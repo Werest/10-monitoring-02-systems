@@ -40,7 +40,7 @@
 >> Пример: "95% отчетов генерируются быстрее 5 секунд". Показывает эффективность вычислений.
 
 > User Satisfaction (Apdex Score):
->> Пример: Индекс удовлетворенности на основе времени ответа (e.g., T-цель = 1с, F-цель = 4с).
+>> Пример: Индекс удовлетворенности на основе времени ответа (T-цель = 1с, F-цель = 4с).
 
 > Business Requests Volume:
 >> Пример: "Количество сгенерированных отчетов в день". Показывает активность клиентов.
@@ -55,7 +55,7 @@
 Решение для сбора ошибок без бюджета:
 
 > Приложение → stdout/stderr → Fluentd/Fluent Bit → Файлы:
->> Логи пишутся в файл на сервере, Fluentd парсит ошибки и отправляет уведомления (e.g., Telegram, Email).
+>> Логи пишутся в файл на сервере, Fluentd парсит ошибки и отправляет уведомления (Telegram, Email).
 
 > Error Tracking через мониторинг:
 >> Собирать метрики типа app_errors_total в Prometheus и настраивать алерты.
@@ -98,7 +98,7 @@ SLA = (summ_2xx_requests + summ_3xx_requests) / summ_all_requests
     - VictoriaMetrics
     - Nagios
 
-- Prometheus / Pull / Push (гибрид). Основной сбор — pull. PushGateway для задач (cron).
+- Prometheus / Pull + Push (гибрид). Основной сбор — pull. PushGateway для задач (cron).
 - TICK (Telegraf) / Push / Telegraf отправляет данные в InfluxDB (push).
 - Zabbix / Pull + Push / Агенты могут инициировать push или ждать pull.
 - VictoriaMetrics / Pull + Push (гибрид) / Поддерживает оба подхода через VMagent.
